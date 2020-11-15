@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package key_pair_proto;
+
+enum KeyType {
+  RSA = 0;
+  Ed25519 = 1;
+  Secp256k1 = 2;
+}
+
+// _Refer [peer_id spec] for details.
+//
+// [peer_id spec] : https://github.com/libp2p/specs/blob/master/peer-ids/peer-ids.md
+message PublicKey {
+  required KeyType Type = 1;
+  required bytes Data = 2;
+}
+
+// _Refer [peer_id spec] for details.
+//
+// [peer_id spec] : https://github.com/libp2p/specs/blob/master/peer-ids/peer-ids.md
+message PrivateKey {
+  required KeyType Type = 1;
+  required bytes Data = 2;
+}
